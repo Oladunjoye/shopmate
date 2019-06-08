@@ -1,6 +1,9 @@
 import React, {Fragment} from "react"
 import Main from './Main'
 import Feature from "./Feature";
+import Gallery from "./Gallery";
+
+
 
 
 function Home(){
@@ -8,6 +11,7 @@ function Home(){
         <Fragment>
         <Main/>
         <Feature/>
+        <Gallery/>
         </Fragment>
     )
 }
