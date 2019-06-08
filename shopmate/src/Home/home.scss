@@ -1,0 +1,147 @@
+// -----------------------------------------------------------------------------------------------
+//GENERAL SETTINGS
+// COLOR VARIABLES
+$color-primary:#F62F5E;
+$color-primary-dark: #B28451;
+
+// $color-secondary: #101d2c;
+
+// $color-grey-light-1: #f9f7f6;
+// $color-grey-light-2: #aaa;
+
+// $color-grey-dark-1: #54483A;
+// $color-grey-dark-2: #6D5D4B;
+
+// FONT VARIABLES
+$font-primary: 'Montserrat', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html{
+  box-sizing: border-box;
+  font-size: 62.5% // 10px/16px = 1rem
+}
+
+body{
+  font-family: $font-primary;
+  color:#fff;;
+}
+
+//GENERAL SETTINGS END
+
+// -----------------------------------------------------------------------------------------------
+//MAIN SECTION BEGINS
+main{
+    height: 90vh;
+    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url(/images/hero.png);
+    background-size: cover;
+    background-position: center;
+
+    .hero{
+        height: 50vh;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p{
+            font-size: 2rem;
+            margin: 2rem;
+        }
+        h1{
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 7rem;
+            margin-bottom: 2rem; 
+        }
+        
+    }
+    //button
+    input,
+    .btn:link,
+    .btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+    font-weight: 300;
+    color:#fff;
+    border-radius: 300px;
+    margin-right: 20px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    }
+
+    .btn-full:link,
+    .btn-full:visited{
+    background-color:#fff ;
+    border: 1px solid $color-primary ;
+    }
+    .btn-ghost:link,
+    .btn-ghost:visited{
+        background-color:$color-primary ;
+        border: 1px solid $color-primary ;
+        color: #fff ;
+        font-size: 1.4rem;
+    }
+
+    .btn:hover,
+    .btn:active{
+        // background-color: #337452;
+    }
+
+    .btn-full:hover,
+    .btn-full:active{
+
+    // border: 1px solid #337452 ;
+    }
+    .btn-ghost:hover,
+    .btn-ghost:active{
+        // border: 1px solid #337452;
+        // color: #fff;
+    }
+}
+//MAIN SECTION ENDS
+
+// ------------------------------------------------------------------------------
+
+// NAVBAR SECTION //
+.navbar{
+margin: 1rem auto;
+padding: 1rem;
+height: 10vh;
+display : flex;
+justify-content: space-between;
+h3{
+   text-transform: uppercase;
+    font-size: 2.4rem;
+}
+
+.navbar-sub{
+    display:flex;
+    justify-content: space-evenly;
+    
+    li{
+        margin-left: 10rem;
+        list-style: none;
+    }
+}
+
+}
+
+//NAVBAR SECTION END
+
+// ------------------------------------------------------------------------------
+
+// FEATURE SECTION BEGINS
+.feature{
+    margin-top:3rem;
+    margin-bottom:3rem;
+    color: #000;
+}

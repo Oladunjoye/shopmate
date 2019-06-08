@@ -1,10 +1,12 @@
 import React from 'react';
-
+import Home from './Home'
 import './styles.scss';
 
 function App() {
   return (
-    <div>Shopmate</div>
+    <div>
+    <Home/>
+    </div>
   );
 }
 
