@@ -259,3 +259,47 @@ h3{
     }
 
 }
+
+// Gallery section ends
+// --------------------------------------------------------------------------------------------
+
+//SUBSCRIBE SECTION BEGINS
+.subscribe{
+    margin: 3rem 0;
+    background-color: #EFEFEF;
+    height: 40vh;
+   
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-sub{
+        width:60vw;
+        text-align:center;
+    
+    }
+    h2{
+        color: $color-primary;
+        font-size: 2.4rem;
+    }
+    p{
+        margin-top:1.8rem;
+        margin-bottom: 2.4rem;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    div{
+        a{@include button;}
+        input{display: inline-block;
+            text-decoration: none;
+            padding: 10px 30px;
+            font-weight: 300;
+            color:#fff;
+            border: 1px solid #000;
+            border-radius: 300px;
+            margin-right: 20px;
+            transition: background-color 0.2s, border 0.2s, color 0.2s;}
+    }
+}
