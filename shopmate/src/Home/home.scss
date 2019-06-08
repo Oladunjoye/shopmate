@@ -1,5 +1,21 @@
 // -----------------------------------------------------------------------------------------------
 //GENERAL SETTINGS
+//mixin
+@mixin button{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+    font-weight: 300;
+    color:#fff;
+    border-radius: 300px;
+    margin-right: 20px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color:$color-primary ;
+     border: 1px solid $color-primary ;
+     color: #fff ;
+    font-size: 1.6rem;
+
+}
 // COLOR VARIABLES
 $color-primary:#F62F5E;
 $color-primary-dark: #B28451;
@@ -14,6 +30,7 @@ $color-primary-dark: #B28451;
 
 // FONT VARIABLES
 $font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Open Sans', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
 *,
@@ -31,7 +48,7 @@ html{
 
 body{
   font-family: $font-primary;
-  color:#fff;;
+//  
 }
 
 //GENERAL SETTINGS END
@@ -43,6 +60,7 @@ main{
     background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.5)), url(/images/hero.png);
     background-size: cover;
     background-position: center;
+    color:#fff;
 
     .hero{
         height: 50vh;
@@ -78,11 +96,11 @@ main{
     transition: background-color 0.2s, border 0.2s, color 0.2s;
     }
 
-    .btn-full:link,
-    .btn-full:visited{
-    background-color:#fff ;
-    border: 1px solid $color-primary ;
-    }
+    // .btn-full:link,
+    // .btn-full:visited{
+    // background-color:#fff ;
+    // border: 1px solid $color-primary ;
+    // }
     .btn-ghost:link,
     .btn-ghost:visited{
         background-color:$color-primary ;
@@ -141,7 +159,38 @@ h3{
 
 // FEATURE SECTION BEGINS
 .feature{
-    margin-top:3rem;
-    margin-bottom:3rem;
+    margin:3rem;
+    display:grid;
     color: #000;
+    grid-template-columns: repeat(12, 1fr);
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    img{
+        grid-column: 2/5;
+    }
+    div{
+
+        grid-column: 6/11;
+        align-items: center;
+        justify-content: center;
+        padding-top: 2.8rem;
+        
+
+        h2,
+        a{
+            font-size:2.4rem;
+            margin:1.5rem 0;
+        }
+        p{
+            font-size:1.6rem;
+            font-family: $font-secondary;
+            margin: 1.5rem 0;
+            padding-top:1rem;
+        }
+        a{
+            @include button;
+            
+        }
+    }
 }
