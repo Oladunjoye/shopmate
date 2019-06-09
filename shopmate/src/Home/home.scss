@@ -16,6 +16,17 @@
     font-size: 1.6rem;
 
 }
+@mixin inputmixin{
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 30px;
+            font-weight: 300;
+            color:#fff;
+            border: 1px solid #000;
+            border-radius: 300px;
+            margin-right: 20px;
+            transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
 // COLOR VARIABLES
 $color-primary:#F62F5E;
 $color-primary-dark: #B28451;
@@ -83,7 +94,7 @@ main{
         
     }
     //button
-    input,
+    input{@include inputmixin;}
     .btn:link,
     .btn:visited {
     display: inline-block;
@@ -292,14 +303,28 @@ h3{
     }
     div{
         a{@include button;}
-        input{display: inline-block;
-            text-decoration: none;
-            padding: 10px 30px;
-            font-weight: 300;
-            color:#fff;
-            border: 1px solid #000;
-            border-radius: 300px;
-            margin-right: 20px;
-            transition: background-color 0.2s, border 0.2s, color 0.2s;}
+        input{@include inputmixin;}
     }
 }
+
+// SUBSCRIBE SECTION ENDS
+// --------------------------------------------------------------------------------------------
+
+// FOOTER SECTION BEGINS
+footer{
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.1rem;
+
+    h3{
+        font-size: 1.6rem;
+    }
+    li,p{
+        list-style:none;
+        font-family: $font-secondary;
+        font-size: 1.6rem;
+    }
+}
+
+//FOOTER SECTION ENDS

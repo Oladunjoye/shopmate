@@ -3,6 +3,8 @@ import Main from './Main'
 import Feature from "./Feature";
 import Gallery from "./Gallery";
 import Subscribe from "./Subscribe";
+import Footer from "./Footer";
+
 
 
 
@@ -15,6 +17,7 @@ function Home(){
         <Feature/>
         <Gallery/>
         <Subscribe/>
+        <Footer/>
         </Fragment>
     )
 }
