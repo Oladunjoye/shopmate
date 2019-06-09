@@ -1,3 +1,18 @@
+// add to cart mixin
+@mixin addCart{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 300;
+    color:#fff;
+    border-radius: 300px;
+    // margin-right: 20px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color:$color-primary ;
+     border: 1px solid $color-primary ;
+     color: #fff ;
+    font-size: 1.2rem;
+}
 // NAVBAR 2 STARTS
 .navbar2{
 display: flex;
@@ -51,3 +66,86 @@ ul{
 }
 
 //FOOTER ENDS
+
+//GALLERY-SHOP STARTS
+.gallery-shop{
+
+    margin:3rem;
+    display:grid;
+    color: #000;
+    grid-template-columns: repeat(4, minmax(220px, auto));
+    grid-template-rows: repeat(2, minmax(336px,auto));
+    grid-gap: 2rem;
+    height: 100%;
+   
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    img{width: 75%;}
+    figure{ 
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    aside{
+        grid-column: 1/2;
+        grid-row: 1/-1;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .shop1{
+        grid-column:2/3;
+        grid-row: 1/2;
+    }
+    .shop2{
+        grid-column:3/4;
+        grid-row: 1/2;
+    }
+    .shop3{
+        grid-column:4/5;
+        grid-row: 1/2;
+    }
+    .shop4{
+        grid-column:2/3;
+        grid-row: 2/3;
+    }
+    .shop5{
+        grid-column:3/4;
+        grid-row: 2/3;
+    }
+    .shop6{
+        grid-column:4/5;
+        grid-row: 2/3;
+    }
+    a{@include addCart;}
+    p{margin-bottom:1rem;}
+}
+
+
+
+//GALLERY-SHOP ENDS
+
+//H0T SECTION STARTS
+.hot{
+    display:grid;
+    color: #000;
+    grid-template-columns: repeat(3, minmax(300px, auto));
+    grid-template-rows:minmax(336px,auto );
+    grid-gap: 2rem;
+    
+
+    // img{width: 75%;}
+    figure{width:100%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    &1{
+        grid-column:1/2;
+    }
+    &2{
+        grid-column:2/3;
+    }
+    &3{
+        grid-column:3/4;
+    }
+}
+
+
+//HOT SECTION ENDS
+
