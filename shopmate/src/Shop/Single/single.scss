@@ -1,0 +1,80 @@
+// SINGLE ITEM STARTS
+.single{
+    display: grid;
+    height: 90vh;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
+    margin:4rem 3.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    // img{width:100%}
+    .main-img{
+        grid-column: 2/7;
+        grid-row: 2/7;
+        width:70%;
+    }
+
+    .thumbnail{
+        height: 70px;
+        width:70px;
+    }
+    .breadcrumb{
+        grid-column:7/11;
+        grid-row: 2/3;
+        font-size: 1.2rem;
+        ul{display: flex; list-style: none; }
+        li{margin-right: 2rem;}
+    }
+    h2{
+        grid-column:7/11;
+        grid-row: 3/5;
+        font-size:2.4rem;
+        margin-bottom: 4rem;
+    }
+    .price{
+        grid-column:7/11;
+        grid-row: 5/6;  
+        font-size:2.4rem;
+        margin-bottom: 4rem;
+        align-items: center;
+        padding-top: 4rem;
+    }
+    .detail{
+        grid-column:7/11;
+        grid-row: 6/8;  
+        font-size:1.6rem;  
+    }
+    a{
+        grid-column:7/11;
+        grid-row: 10/11;  
+        @include addCart;
+        text-align: center;
+        font-size: 1.4rem;
+        justify-content: start;
+        
+    }
+    .thumbnail-1{
+        grid-column:3/4;
+        grid-row: 10/12;  
+    }
+    .thumbnail-2{
+        grid-column:4/5;
+        grid-row: 10/12;  
+    }
+    .thumbnail-3{
+        grid-column:5/6;
+        grid-row: 10/12;  
+    }
+}
+
+//SINGLE ITEM ENDS
+
+//REVIEWS START
+.ratings{
+
+    .checked {
+        color: gold;
+      }
+}
+
+//REVIEWS END

@@ -3,7 +3,7 @@ import  React from "react"
 function Feature(){
     return(
         <section className ="feature">
-        <img src= "/images/featuresm.png"/>
+        <img src= "/images/featuresm.png" alt = "Feature"/>
         <div>
         <h2>Vera Bradley</h2>
         <p>Carry the day in style with this extra-large tote crafted in our chic B.B.

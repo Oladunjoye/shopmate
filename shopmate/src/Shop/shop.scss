@@ -70,7 +70,7 @@ ul{
 //GALLERY-SHOP STARTS
 .gallery-shop{
 
-    margin:3rem;
+    margin:7rem 3rem;
     display:grid;
     color: #000;
     grid-template-columns: repeat(4, minmax(220px, auto));
@@ -129,12 +129,22 @@ ul{
     display:grid;
     color: #000;
     grid-template-columns: repeat(3, minmax(300px, auto));
-    grid-template-rows:minmax(336px,auto );
+     grid-template-rows:minmax(336px,auto );
     grid-gap: 2rem;
+    margin: 5rem 3rem;
     
 
     // img{width: 75%;}
-    figure{width:100%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    figure{
+        width:100%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{width:50%; height:50%;}
+        p{font-family: $font-secondary; font-size: 1.6rem;}
+        a{@include addCart}
+    }
     &1{
         grid-column:1/2;
     }
