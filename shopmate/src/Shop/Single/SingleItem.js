@@ -1,6 +1,8 @@
 import React, {Fragment} from "react"
 import Navbar2 from '../../Common/Navbar2'
-import Review from './Review'
+import Review from './Review';
+import Hot from '../Hot'
+import Footer from '../Footer'
 
 function Single(){
     return(
@@ -29,6 +31,8 @@ function Single(){
         <a className = "btn btn-ghost" href = "#">Add to cart</a>
         </div>
         <Review/>
+        <Hot/>
+        <Footer className ="singleitem-footer"/>
         </Fragment>
     )
 }
