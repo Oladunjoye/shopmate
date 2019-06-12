@@ -2,15 +2,18 @@ import React from 'react';
 import Home from './Home'
 import Shop from './Shop';
 import SingleItem from './Shop/Single/SingleItem'
+import Cart from "./Checkout/Cart"
+import Checkout from './Checkout/Checkout'
 import './styles.scss';
 
 function App() {
   return (
     <div>
- {/*<Home/>*/}
+   {/*<Home/>*/}
    {/*<Shop/>*/}
-
-    <SingleItem/>
+    {/*<SingleItem/>*/}
+    {/*<Cart/>*/}
+    <Checkout/>
     </div>
   );
 }
