@@ -28,7 +28,7 @@
             transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 // COLOR VARIABLES
-$color-primary:#F62F5E;
+$color-primary:#F62F5E ;
 $color-primary-dark: #B28451;
 
 // $color-secondary: #101d2c;
@@ -59,7 +59,11 @@ html{
 
 body{
   font-family: $font-primary;
+  
 //  
+}
+a{
+    
 }
 
 //GENERAL SETTINGS END
@@ -148,9 +152,18 @@ height: 10vh;
 display : flex;
 justify-content: space-between;
 h3{
-   text-transform: uppercase;
-    font-size: 2.4rem;
-}
+   
+  
+    text-transform: uppercase !important;
+    font-size: 2.4rem !important;
+    color: $color-primary !important;
+
+    
+   } 
+
+   .nav-hard{
+    color: $color-primary !important;
+   }
 
 .navbar-sub{
     display:flex;

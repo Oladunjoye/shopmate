@@ -3,6 +3,7 @@ import Navbar2 from '../../Common/Navbar2'
 import Review from './Review';
 import Hot from '../Hot'
 import Footer from '../Footer'
+import {Link} from 'react-router-dom'
 
 function Single(){
     return(
@@ -28,7 +29,8 @@ function Single(){
         <p className= "price">$13.77</p>
         <p className= "detail">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
         and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>
-        <a className = "btn btn-ghost" href = "#">Add to cart</a>
+        <Link className = "btn btn-ghost" to ='/checkout'>Add to cart</Link>
+       
         </div>
         <Review/>
         <Hot/>

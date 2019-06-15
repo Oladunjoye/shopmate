@@ -1,5 +1,6 @@
 import React from 'react'
 import Filter from "./Filter"
+import {Link} from 'react-router-dom'
 
 function Gallery(){
     return(
@@ -8,16 +9,23 @@ function Gallery(){
         <Filter/>
         </aside>
 
+        
         <figure className = "shop1">
-        <img src= "/images/shop1sm.png" alt ="Product Display"/>
+         <Link to = '/products/:id' className="single-term-link">
+         <img src= "/images/shop1sm.png" alt ="Product Display"/>
         <p>Shirt 1</p>
-        <a className = "btn btn-ghost" href = "#">Add to cart</a>
+        
+        </Link>
+        <a className = "btn btn-ghost " href = "#">Add to cart</a>
         </figure>
+        
 
         <figure className = "shop2">
+        <Link to = '/products/:id' className="single-term-link">
         <img src= "/images/shop2sm.png" alt ="Product Display"/>
         <p>Shirt 2</p>
         <a className = "btn btn-ghost" href = "#">Add to cart</a>
+        </Link>
         </figure>
 
         <figure className = "shop3">

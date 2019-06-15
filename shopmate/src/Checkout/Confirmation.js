@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Progressbar from './Progressbar';
+import CheckoutFooter from './checkoutfooter';
 
 
-const Confirmation = props => {
+class  Confirmation extends Component {
+  
+
+  continue = e =>{
+        e.preventDefault()
+        this.props.nextStep()
+    }
+    previous = e =>{
+        e.preventDefault()
+        this.props.prevStep()
+    }
+
+    render(){
   return (
-    <div>
-    <table class = "highlight">
+    <div className ="checkout-form">
+   
+   <Progressbar/>
+    <div className ="confirmation">
+    
+    <div className ="confirmation-1">
+    <h3>Order</h3>
+    <table class = " table table-striped">
+    
     <thead>
       <tr>
           <th>Item</th>
@@ -46,17 +67,18 @@ const Confirmation = props => {
       </tr>
     </tbody>
   </table>
+  </div>
 
-  <div>
-  <h3>Delivery</h3>
+  <div className ="confirmation-2">
+  <h4>Delivery</h4>
   <span>Adress</span>
   <p>Office 64, 8 Colmore Row, Birmingham, England, 42000</p>
-  <h3></h3>
+  <h4>Delivery Options</h4>
   <p>Standart delivery (free, 2-3 days)</p>
   </div>
 
   <hr/>
-  <div> 
+  <div className ="confirmation-3"> 
   <button>New Year 8%</button>
 
   <span>
@@ -76,7 +98,13 @@ const Confirmation = props => {
   </div>
 
     </div>
+    <div className ="checkout-footer">
+            <button onClick= {this.previous} className = "btn btn-ghost btn-white" href = "#">Back</button>
+            <button onClick= {this.continue}  className = "btn btn-standard " href = "#">Next Step</button>
+            </div>
+    </div>
   );
+}
 }
 
 export default Confirmation;

@@ -1,11 +1,12 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 
 function Navbar(){
     return(
         <nav className="navbar ">
                       
         
-          <h3>Shopmate</h3>
+        <Link to = "/"><h3>Shopmate</h3> </Link>
 
           <div >
           <ul className ="navbar-sub">
