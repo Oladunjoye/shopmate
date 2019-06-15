@@ -1,1 +1,0 @@
-# shopmate.github.io
