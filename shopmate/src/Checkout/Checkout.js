@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Delivery from './Delivery'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
+import Success from './Success';
 
 
 
@@ -44,6 +45,10 @@ class Checkout extends Component {
                     return (
                            <Payment  nextStep={this.nextStep} prevStep={this.prevStep}/>
                                             );
+            case 4: 
+                 return (
+                     <Success/>
+                 )                           
                         }
        
     }

@@ -377,3 +377,25 @@ hr{
     }
     
 //overall checkout ends
+
+
+
+
+// SUCCESS SECTION STARTS
+.success-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    padding-bottom: 5rem;
+
+    p{
+        color: #6C6C6C;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 3rem 0;
+    }
+    .btn-standard{@include button}
+}
+//SUCESS SECTION ENDS

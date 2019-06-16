@@ -1,5 +1,6 @@
 import React from "react"
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Register from '../Auth/Register'
 
 function Navbar(){
     return(
@@ -17,11 +18,15 @@ function Navbar(){
           </div>
 
           <div >
+          <Register/>
           <ul className ="navbar-sub">
-          <li><i className="fas fa-search"></i></li>
+          
+          <li><i className="fas fa-search" data-toggle="modal" data-target="#modalRegisterForm"></i></li>
           <li><i className="fas fa-search"></i></li>
           </ul>
           </div>
+          
+         
           
                    
         </nav>

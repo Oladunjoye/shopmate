@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import Progressbar from './Progressbar'
 import CheckoutFooter from './checkoutfooter';
+import {Link} from 'react-router-dom'
 
 
 class Payment extends Component{
     
+    continue = e =>{
+        e.preventDefault()
+        this.props.nextStep()
+    }
     previous = e =>{
         e.preventDefault()
         this.props.prevStep()
@@ -57,7 +62,7 @@ class Payment extends Component{
         </div>
         <div className ="checkout-footer">
             <button onClick= {this.previous} className = "btn btn-ghost btn-white" href = "#">Back</button>
-            <button   className = "btn btn-standard " href = "#">Finish</button>
+            <button onClick= {this.continue} className = "btn btn-standard " href = "#">Pay</button>
             </div>
         </form>
     );
