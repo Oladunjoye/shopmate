@@ -398,4 +398,8 @@ hr{
     }
     .btn-standard{@include button}
 }
-//SUCESS SECTION ENDS
+//SUcCESS SECTION ENDS
+
+.special{
+    @include button
+}

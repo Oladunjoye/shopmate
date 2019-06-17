@@ -1,6 +1,7 @@
 import React from "react"
 import {Link} from 'react-router-dom';
 import Register from '../Auth/Register'
+import Login from "../Auth/Login";
 
 function Navbar(){
     return(
@@ -19,10 +20,13 @@ function Navbar(){
 
           <div >
           <Register/>
+          <Login/>
           <ul className ="navbar-sub">
           
-          <li><i className="fas fa-search" data-toggle="modal" data-target="#modalRegisterForm"></i></li>
-          <li><i className="fas fa-search"></i></li>
+          <li className="" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</li>
+          <li className="" data-toggle="modal" data-target="#modalLoginForm">Log in  </li>
+
+         
           </ul>
           </div>
           
