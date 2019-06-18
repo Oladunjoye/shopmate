@@ -61,6 +61,8 @@ function Gallery(){
         </Link>
         <a className = "btn btn-ghost" href = "#">Add to cart</a>
         </figure>
+
+        
         </section>
 
     )

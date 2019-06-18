@@ -1,60 +1,78 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 function Cart(){
     return(
-        <div>
-        <table>
-        <tr>
-          <th>Item</th>
-          <th>Size</th>
-          <th>Quantity</th>
-          <th>Price</th>
+    <div className ="cart-form">
+    <h3>4 items in the Cart  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button></h3>
+   
+    <hr/>
+ 
+    <table className="cart-table table-borderless">
+    <thead id ="thead">
+      <tr>
+        <th scope="col"  id="cart-header-1">Item</th>
+        <th scope="col" id="cart-header-2">Size</th>
 
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-          <td>Germany</td>
+        <th scope="col" id="cart-header-3">Quantity</th>
+        <th scope="col" id="cart-header-4">Price</th>
+       
+  
+  
+      </tr>
+     
+    </thead>
+    
+    
+    <tbody id ="tbody">
+      <tr>
+       
+        <td class= "full-cart-image" id ="full-cart-image">
+       
+        <img id ="cart-image" src= "/images/shop1sm.png" />
+        <div className ="cart-image-content">
+        <h4>Green T-shirt 2016</h4>
+        <p>Men BK3569</p>
+        <button>Remove</button>
+        </div>
+        </td>
+        <td> XXL</td>
+        <td id = "td-input"><i class="fas fa-plus"></i><input type ="text" value ="3"/><i class="fas fa-minus"></i></td>
+        <td>£42</td>
+        
+        
+        
+        
+  
+      </tr>
+      <tr>
+      <td  class= "full-cart-image" id ="full-cart-image-2">
+      <img id ="cart-image" src= "/images/shop2sm.png" />
+      <div className ="cart-image-content">
+      <h4>Green T-shirt 2016</h4>
+      <p>Men BK3569</p>
+      <button>Remove</button>
+      </div>
+      </td>
+      <td> XXL</td>
+      <td><i class="fas fa-plus"></i><input type ="text" value ="3"/><i class="fas fa-minus"></i></td>
+      <td>£42</td>
+        
+      </tr>
 
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-          <td>Mexico</td>
-
-        </tr>
-        <tr>
-          <td>Ernst Handel</td>
-          <td>Roland Mendel</td>
-          <td>Austria</td>
-          <td>Austria</td>
-          
-        </tr>
-        <tr>
-          <td>Island Trading</td>
-          <td>Helen Bennett</td>
-          <td>UK</td>
-          <td>UK</td>
-
-        </tr>
-        <tr>
-          <td>Laughing Bacchus Winecellars</td>
-          <td>Yoshi Tannamuri</td>
-          <td>Canada</td>
-          <td>Canada</td>
-
-        </tr>
-        <tr>
-          <td>Magazzini Alimentari Riuniti</td>
-          <td>Giovanni Rovelli</td>
-          <td>Italy</td>
-          <td>Italy</td>
-
-        </tr>
-      </table></div>
-    )
+      
+    </tbody>
+  </table>
+  
+  <div className ="checkout-footer">
+  <Link to =  "/products" className = "btn btn-ghost btn-white" href = "#">Back to shop</Link>
+  <Link to =  "/checkout" className = "btn btn-standard " data-dismiss ="modal" href = "#">Checkout</Link>
+  </div>
+</div>
+  
+        )
 }
 
 export default Cart

@@ -361,6 +361,7 @@ hr{
         justify-content: space-around;
         padding:2.5rem  0;
         margin-top: 3rem;
+        width: 100% !important;
         .btn-white{     display: inline-block;
             text-decoration: none;
             padding: 10px 30px;
@@ -374,6 +375,12 @@ hr{
              
             font-size: 1.6rem;}
         .btn-standard{@include button}
+    
+     #full-cart-image{
+        
+        display: flex;
+    }
+    
     }
     
 //overall checkout ends
@@ -402,4 +409,103 @@ hr{
 
 .special{
     @include button
+}
+
+
+// CART STYLE SECTION
+
+#modalCartForm{
+    font-size: 1.6rem;
+
+   
+}
+#cart-modal-image{
+    height: 30px;
+    width: 30px;
+}
+
+#cart-image{
+    height: 90px;
+    width: 90px;
+    padding: 1rem;
+    border: 1px solid #B4B4B4;
+    margin: 0 1rem
+}
+
+#modalCartForm{
+    background: none;
+}
+.cart-form{
+    width: 100%;
+    margin: 1rem auto 0;
+   
+
+    h3{
+        padding-left: 8.5rem;
+        padding-top: 3rem;
+        margin: 3rem;
+        color: #2E2E2E;
+        font-size: 2.4rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    hr{
+    }
+        
+    table th{
+        font-size: 1.4rem !important;
+        
+    }
+
+     #tbody > tr{ 
+         margin-top: 2rem !important;
+         top:2rem
+
+    }
+    
+    td > input{
+        width:5rem;
+        height: 2.4rem
+    }
+    td > #td-input{
+        margin: 0 auto;
+        justify-content: center;
+        padding-left: 3rem;
+    }
+    table td {
+        font-size:1.6rem;
+    
+    
+    }
+    .cart-table{
+        width:80%;
+        // padding: 5.5rem;
+        border-collapse: separate;
+        margin: 0 auto;
+        font-size: 1.6rem;
+      
+     }
+     
+     thead tr {
+        font-size: 1.4rem;
+        
+      #cart-header-1{
+         padding-left: 2rem;
+       
+     }
+
+     #cart-header-3{
+         margin: 0 auto;
+         padding-left:5rem;
+     }
+
+     }
+     .full-cart-image{
+         display: flex;
+     }
+}
+
+.fa-white{
+    color: white;
+    
 }
