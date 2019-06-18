@@ -10,6 +10,10 @@ import {Provider} from "react-redux"
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux'  
 import rootSaga from './redux/sagas/rootSaga'
 import createSagaMiddleware from 'redux-saga' 
+import productReducer from './redux/reducers/productReducer';
+import loadingReducer from "./redux/reducers/loadingReducer"
+import errorReducer from "./redux/reducers/errorReducer"
+
 
 
 //redux setup
@@ -20,7 +24,10 @@ const composeSetup = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   window.__RE
 
 
 const rootReducer = combineReducers({
-    
+    products: productReducer,
+    isLoading: loadingReducer,
+    error: errorReducer
+
 })
 
 const store = createStore(  
