@@ -6,9 +6,35 @@ import Cart from "./Checkout/Cart"
 import Checkout from './Checkout/Checkout'
 import './styles.scss';
 import {Link, Route, BrowserRouter as Router} from 'react-router-dom'
+import {Provider} from "react-redux"
+import { applyMiddleware, createStore, compose, combineReducers } from 'redux'  
+import rootSaga from './redux/sagas/rootSaga'
+import createSagaMiddleware from 'redux-saga' 
+
+
+//redux setup
+
+const sagaMiddleware = createSagaMiddleware()
+
+const composeSetup = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+
+
+const rootReducer = combineReducers({
+    
+})
+
+const store = createStore(  
+  rootReducer,
+  composeSetup(applyMiddleware(sagaMiddleware)), // allows redux devtools to watch sagas
+)
+sagaMiddleware.run(rootSaga)
+
+//redux setup ends
+
 
 function App() {
   return (
+    <Provider store ={store}>
    <Router>
     <div>
    <Route exact path ='/' component ={Home} />
@@ -18,6 +44,7 @@ function App() {
       <Route path ='/checkout' component ={Checkout} />
    </div>
     </Router>
+    </Provider>
   );
 }
 
