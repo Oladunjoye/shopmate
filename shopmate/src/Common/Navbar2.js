@@ -1,8 +1,11 @@
 import React from "react"
 import {Link} from 'react-router-dom'
 import CartModal from "../Checkout/CartModal"
+import {connect} from "react-redux"
+import {getCartItems} from '../redux/actions'
 
 function Navbar2(){
+    
     return(
         <nav className="navbar2 ">
                       
@@ -13,7 +16,7 @@ function Navbar2(){
 
         <CartModal/>
         <div>
-        <i className="fas fa-shopping-cart fa-2x fa-white"  data-toggle="modal" data-target="#modalCartForm"></i>
+        <i  className="fas fa-shopping-cart fa-2x fa-white"  data-toggle="modal" data-target="#modalCartForm"></i>
         </div>
           
                    

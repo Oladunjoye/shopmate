@@ -9,10 +9,12 @@ const initialState = {
 const cartReducer=(state = initialState, action) => {
     switch(action.type){
         
-        case   SET_CART_ID:
+        case   CART.SET_CART_ID:
         return  {...state, cartId:action.id}
         case CART.SET_ITEMS:
-        return {...state, cartItems: action.items}
+        
+       
+        return {...state, cartItems:action.items}
         
        
 

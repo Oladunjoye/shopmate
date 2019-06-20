@@ -13,6 +13,7 @@ import createSagaMiddleware from 'redux-saga'
 import productReducer from './redux/reducers/productReducer';
 import loadingReducer from "./redux/reducers/loadingReducer"
 import errorReducer from "./redux/reducers/errorReducer"
+import cartReducer from './redux/reducers/cartReducer';
 
 
 
@@ -26,8 +27,8 @@ const composeSetup = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   window.__RE
 const rootReducer = combineReducers({
     products: productReducer,
     isLoading: loadingReducer,
-    error: errorReducer
-
+    error: errorReducer,
+    cart: cartReducer
 })
 
 const store = createStore(  

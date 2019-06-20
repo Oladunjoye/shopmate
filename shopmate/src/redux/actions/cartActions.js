@@ -1,6 +1,10 @@
 import {CART}  from '../constants'
 
-
+const getCartId = () => (
+    {
+        type: CART.GET_CART_ID
+    }
+)
 const setCartId = (id) => ({
    
     type:CART.SET_CART_ID,
@@ -9,6 +13,7 @@ const setCartId = (id) => ({
 })
 
 const addToCart = (cartId, productId, attributes) =>{
+    
     return({
         type: CART.ADD_ITEM,
         cartId,
@@ -19,7 +24,7 @@ const addToCart = (cartId, productId, attributes) =>{
 
 //notifications --start
 const setNotification = (message) => ({
-    type: "SET_NOTIFICATION",
+    type: CART.SET_NOTIFICATION,
     message
 })
 
@@ -39,10 +44,10 @@ const  getCartItems = (cartId) =>({
 
 })
 
-const setItems = (items) => {
+const setCartItems = (items) => ({
     type: CART.SET_ITEMS,
     items
-}
+})
 
 const removeItem = (itemId) => ({
     
@@ -71,5 +76,5 @@ const getTotalAmount = (cartId) => ({
 
 export{
     setCartId,addToCart,setNotification,setError,
-    getCartItems,removeItem,updateItem,deleteCart,getTotalAmount,setItems
+    getCartItems,removeItem,updateItem,deleteCart,getTotalAmount,setCartItems, getCartId
 }

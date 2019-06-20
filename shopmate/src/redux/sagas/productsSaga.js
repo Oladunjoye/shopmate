@@ -1,6 +1,6 @@
 import {takeEvery,call,put} from "redux-saga/effects"
 import {PRODUCTS} from "../constants"
-import { setProducts,setError } from "../actions";
+import { setProducts,setProductError } from "../actions";
 
 const url= 'https://backendapi.turing.com/products?'
 function* handleProductsFetch(page){
@@ -15,7 +15,7 @@ function* handleProductsFetch(page){
     }
     catch(error){
 
-        yield put (setError(error))
+        yield put (setProductError(error))
     }
 }
 

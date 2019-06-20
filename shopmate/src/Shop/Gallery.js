@@ -3,18 +3,24 @@ import Filter from "./Filter"
 import {Link} from 'react-router-dom'
 import {connect} from "react-redux"
 import { fetchProducts } from '../redux/actions';
+import {getCartId, getCartItems, addToCart} from "../redux/actions"
 
 class Gallery extends Component{
    
     componentDidMount() {
 
         this.props.fetchProducts();
+        this.props.getCartId();
+        this.props.getCartItems();
 
         }
-   
+        
+        
+
     render(){
        
         const products = this.props.products.map(product =>{
+           
             const imageUrl = `https://backendapi.turing.com/images/products/${product.thumbnail}`
             return(
             <figure key={product.product_id} className = "">
@@ -24,7 +30,11 @@ class Gallery extends Component{
            <p>{product.name}</p>
            
            </Link>
-           <a className = "btn btn-ghost " href = "#">Add to cart</a>
+           
+           <button 
+           onClick={(e) => this.props.addToCart(this.props.cart.cartId.cart_id, product.product_id, product.description)
+        }  className = "btn btn-ghost " href = "#">Add to cart</button>
+         
            </figure>
             
              ) }
@@ -42,15 +52,20 @@ class Gallery extends Component{
     }
 }
 
-const mapStateToProps= ({isLoading, products,error}) =>({
+const mapStateToProps= ({isLoading, products,error,cart}) =>({
     isLoading,
     products,
-    error
+    error,
+    cart
 }
 ) 
 
 const mapDispatchToProps= dispatch =>({
-    fetchProducts: () => dispatch(fetchProducts())
+    fetchProducts: () => dispatch(fetchProducts()),
+    getCartId: () => dispatch(getCartId()),
+    addToCart : (cartId, productId, attributes) => dispatch(addToCart(cartId, productId, attributes)),
+    getCartItems: () => dispatch(getCartItems())
+    
 
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Gallery)

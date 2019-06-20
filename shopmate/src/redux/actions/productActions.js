@@ -14,7 +14,7 @@ const setProducts =(products) =>({
 
 })
 
-const setError =(error) =>({
+const setProductError =(error) =>({
 
     type:PRODUCTS.LOAD_FAILURE,
     error
@@ -23,4 +23,4 @@ const setError =(error) =>({
 export{
     fetchProducts,
     setProducts,
-    setError}
+    setProductError}
