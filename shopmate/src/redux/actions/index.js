@@ -1,24 +1,6 @@
-import {PRODUCTS} from '../constants'
-
-const fetchProducts =() =>{
-
-    type:PRODUCTS.LOAD
-
-}
-
-const setProducts =(products) =>{
-
-    type:PRODUCTS.LOAD_SUCCESS,
-    products
+import {fetchProducts,setProducts,setError} from './productActions'
 
 
-}
-
-const setError =(error) =>{
-
-    type:PRODUCTS.LOAD_FAILURE,
-    error
-}
 
 export{
     fetchProducts,

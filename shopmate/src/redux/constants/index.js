@@ -7,4 +7,26 @@ const PRODUCTS = {
 
 }
 
-export {PRODUCTS}
+const CART = {
+    ADD_ITEM: "ADD_ITEM",
+    
+   
+    REMOVE_ITEM: "REMOVE_ITEM",
+    REMOVE_ITEM_SUCESS: "REMOVE_ITEM_SUCESS",
+   
+    UPDATE_ITEM: "UPDATE_ITEM",
+   
+    
+    GET_TOTAL_AMOUNT: "GET_TOTAL_AMOUNT",
+    GET_ITEMS: "GET_ITEMS",
+    
+    SET_ITEMS: "SET_ITEMS",
+    SET_CART_ID: "SET_CART_ID",
+    SET_ERROR: "SET_ERROR",
+    DELETE_CART: "DELETE_CART"
+    
+    
+
+}
+
+export {PRODUCTS, CART}
