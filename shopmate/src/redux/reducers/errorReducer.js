@@ -1,4 +1,4 @@
-import {PRODUCTS, CART} from '../constants'
+import {PRODUCTS, CART, AUTH} from '../constants'
 
 
 const errorReducer=(state =null, action) => {
@@ -10,6 +10,7 @@ const errorReducer=(state =null, action) => {
 
         case PRODUCTS.LOAD_FAILURE:
          case CART.SET_ERROR:
+        case AUTH.FAIL:
         
                 return action.error
         default:

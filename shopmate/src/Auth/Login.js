@@ -1,12 +1,39 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom"
+import {connect} from "react-redux"
+import {login} from "../redux/actions"
+import { Redirect } from 'react-router-dom';
+import {withRouter} from "react-router-dom"
 
 class Login extends Component{
 
+  state ={
+    
+    email: '',
+    password: ''
+  }
+
+  handleChange = (e) =>{
+   
+     this.setState({
+      [e.target.name] : e.target.value
+    })
+  }
+  handleSubmit= (e) => {
+    e.preventDefault()
+    const {email, password} = this.state
+    this.props.login(email,password)
+    this.setState({ email: '', password: ""})
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    
+    this.props.history.push("/products");
+  }
 render(){
   return(
       <Fragment>
-      <form className ="login-modal">
+      <form onSubmit ={this.handleSubmit} className ="login-modal">
       <div id="log-modal" className="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered" role="document">
@@ -20,11 +47,11 @@ render(){
 
       <div className="modal-body mx-3">
         <div id ="login-input" className="mx-auto">
-        <input type="text" id="login-1" className="form-control validate" placeholder ="Email"/>
+        <input type="email" onChange ={this.handleChange} id="login-1" name ="email" className="form-control validate" placeholder ="Email"/>
         </div>
 
         <div id ="login-input" className="mx-auto">
-        <input type="text" id="login-1" className="form-control validate" placeholder ="Password"/>
+        <input type="password" onChange ={this.handleChange} id="login-1" name ="password" className="form-control validate" placeholder ="Password"/>
         </div>
 
         
@@ -51,4 +78,12 @@ render(){
         )
     }
 }
-export default Login
+
+const mapStateToProps = ({auth}) => ({
+  isAuthenticated: auth.isAuthenticated
+})
+
+const mapDispatchToProps = dispatch => ({
+  login: ( email, password) => dispatch(login(email, password))
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Login)

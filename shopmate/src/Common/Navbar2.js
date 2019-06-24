@@ -1,11 +1,17 @@
-import React from "react"
+import React, {Component} from "react"
 import {Link} from 'react-router-dom'
 import CartModal from "../Checkout/CartModal"
 import {connect} from "react-redux"
 import {getCartItems} from '../redux/actions'
 
-function Navbar2(){
+class Navbar2 extends Component{
     
+    componentDidMount(){
+        debugger
+        this.props.getCartItems(this.props.cartId)
+    }
+
+    render(){
     return(
         <nav className="navbar2 ">
                       
@@ -15,14 +21,25 @@ function Navbar2(){
         <input type ="text" placeholder ="Search Anything"/>
 
         <CartModal/>
-        <div>
-        <i  className="fas fa-shopping-cart fa-2x fa-white"  data-toggle="modal" data-target="#modalCartForm"></i>
+        
+        <div >
+        <i   className="fas fa-shopping-cart fa-2x fa-white"  data-toggle="modal" data-target="#modalCartForm"></i>
         </div>
           
                    
         </nav>
     )
 }
+}
 
 
-export default Navbar2
+const mapDispatchToProps = dispatch =>({
+
+    getCartItems: () => dispatch(getCartItems())
+
+})
+
+const mapStateToProps =({cart}) => ({
+    cartId : cart.cartId
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar2)

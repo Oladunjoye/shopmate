@@ -1,12 +1,41 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom"
+import {connect} from "react-redux"
+import {register} from '../redux/actions'
+import { Redirect } from 'react-router-dom';
 
 class Register extends Component{
 
+  state ={
+    name: '',
+    email: '',
+    password: ''
+  }
+
+  handleChange = (e) =>{
+   
+     this.setState({
+      [e.target.name] : e.target.value
+    })
+  }
+  handleSubmit= (e) => {
+    e.preventDefault()
+    const {name,email, password} = this.state
+    this.props.register(name,email,password)
+    this.setState({name : '', email: '', password: ""})
+    
+  }
+  componentDidUpdate(prevProps){
+    const {isAuthenticated} = this.props
+    if(isAuthenticated){
+     return  <Redirect push to = "/products"/>
+    }
+    
+  }
 render(){
   return(
       <Fragment>
-      <form className ="register-modal">
+      <div  className ="register-modal">
       <div id="reg-modal" className="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered" role="document">
@@ -18,17 +47,22 @@ render(){
         </button>
       </div>
 
-      <div className="modal-body mx-3">
+      <form onSubmit = {this.handleSubmit} >
+      <div className="modal-body mx-3" style ={{color : 'black'}}>
+        
+
         <div id ="register-input" className="mx-auto">
-        <input type="text" id="register-1" className="form-control validate" placeholder ="Email"/>
+        <input type="text" id="register-1" name ="name" onChange = {this.handleChange}  className="form-control validate" placeholder ="Name"/>
         </div>
 
         <div id ="register-input" className="mx-auto">
-        <input type="text" id="register-1" className="form-control validate" placeholder ="Password"/>
+        <input type="text" id="register-1"  name ="email" onChange = {this.handleChange} className="form-control validate" placeholder ="Email"/>
         </div>
+
+        
 
         <div id ="register-input" className=" mx-auto">
-        <input type="text" id="register-1" className="form-control validate" placeholder ="Re-type Password"/>
+        <input type="password" id="register-1"  name ="password" onChange = {this.handleChange} value ={this.state.password} className="form-control validate" placeholder ="Password"/>
         </div>
         <button type ="submit" className = "btn special ">Sign Up</button>
 
@@ -37,18 +71,28 @@ render(){
         </div>
    
       </div>
-
-      
-      
-
-        </div>
-        </div>
-        </div>
       </form>
+    
+
+      
+      
+
+        </div>
+        </div>
+        </div>
+      </div>
     
 
 </Fragment>
         )
     }
 }
-export default Register
+
+const mapStateToProps = ({auth}) => ({
+  isAuthenticated: auth.isAuthenticated
+})
+
+const mapDispatchToProps = dispatch => ({
+  register: (name, email, password) => dispatch(register(name,email, password))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

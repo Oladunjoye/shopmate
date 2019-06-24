@@ -11,7 +11,7 @@ class Gallery extends Component{
 
         this.props.fetchProducts();
         this.props.getCartId();
-        this.props.getCartItems();
+       
 
         }
         
@@ -32,7 +32,7 @@ class Gallery extends Component{
            </Link>
            
            <button 
-           onClick={(e) => this.props.addToCart(this.props.cart.cartId.cart_id, product.product_id, product.description)
+           onClick={(e) => this.props.addToCart(this.props.cart.cartId.cart_id,  product.product_id, product.description)
         }  className = "btn btn-ghost " href = "#">Add to cart</button>
          
            </figure>
@@ -63,8 +63,8 @@ const mapStateToProps= ({isLoading, products,error,cart}) =>({
 const mapDispatchToProps= dispatch =>({
     fetchProducts: () => dispatch(fetchProducts()),
     getCartId: () => dispatch(getCartId()),
-    addToCart : (cartId, productId, attributes) => dispatch(addToCart(cartId, productId, attributes)),
-    getCartItems: () => dispatch(getCartItems())
+    addToCart : (cartId,product, attributes) => dispatch(addToCart(cartId, product, attributes)),
+  
     
 
 })

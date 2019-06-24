@@ -9,7 +9,7 @@ const PRODUCTS = {
 
 const CART = {
     ADD_ITEM: "ADD_ITEM",
-    
+    ADD_ITEM_DB: "ADD_ITEM_DB",
    
     REMOVE_ITEM: "REMOVE_ITEM",
     REMOVE_ITEM_SUCESS: "REMOVE_ITEM_SUCESS",
@@ -32,4 +32,10 @@ const CART = {
 
 }
 
-export {PRODUCTS, CART}
+const AUTH = {
+    LOGIN: "LOGIN_USER",
+    REGISTER: "REGISTER_USER",
+    SET_USER: "SET_USER",
+    FAIL: "AUTH_FAIL"
+}
+export {PRODUCTS, CART, AUTH}

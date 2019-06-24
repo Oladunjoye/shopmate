@@ -11,6 +11,7 @@ function * createCart(){
 
         const response = yield call(fetch, createCartIdUrl)
         const cartId = yield call([response, response.json])
+        
         yield put(setCartId(cartId))
     }
     catch(e){
@@ -18,14 +19,15 @@ function * createCart(){
     }
 }
 
-function* getCartItems(cartId){
+function* getCartItems({cartId}){
     const getCartItemsUrl = `https://backendapi.turing.com/shoppingcart/${cartId}`
     try{
-        
+        debugger 
     const response = yield call(fetch,getCartItemsUrl)
-    // console.log(response)
+   debugger
     const cartItems =  yield call([response, response.json]);
-   
+        debugger
+ console.log("Run", cartItems)
     yield put (setCartItems(cartItems))
     }
     catch(error){
@@ -39,18 +41,21 @@ function* getCartItems(cartId){
     const addItemUrl = 'https://backendapi.turing.com/shoppingcart/add'
     let cartItemsResult =   axios.post(addItemUrl,{...params})
     
-    console.log("cartItemsResult",cartItemsResult)
+    
     return cartItemsResult
 }
 
 function* addItem ({cartId, productId,attributes}){
-    
+   
 
     try{
         const cartItems =  yield call(addItemApiCall, {cart_id:cartId, product_id:productId, attributes})
         
-        console.log('cartItem', cartItems.data)
+         
+        
         yield put(setCartItems(cartItems.data))
+        
+        
         yield put(setNotification("Item added to cart"))
     }
     catch(error){
@@ -60,14 +65,26 @@ function* addItem ({cartId, productId,attributes}){
 
 }
 
-function removeItemApiCall(itemId){
-    const removeItemUrl = `https://backendapi.turing.com/shoppingcart/removeProduct/${itemId}`
+function removeItemApiCall({item_id}){
+    console.log("api call",item_id)
+    const removeItemUrl = `https://backendapi.turing.com/shoppingcart/removeProduct/${item_id}`
     return axios.delete(removeItemUrl)
 }
 
-function * removeItem(itemId){
+function* removeItem({itemId, items} ){
+
     try{
-        yield call(removeItemApiCall, itemId)
+        
+        
+        
+         yield call(removeItemApiCall, {item_id: itemId} )
+          const cartItems = items.filter((item) => {
+           return item.item_id !== itemId
+          })
+
+          localStorage.setItem('cartItems', JSON.stringify(cartItems))
+          yield put(setCartItems(cartItems))
+       
         yield put (setNotification("Item removed"))
     }
     catch(error){
@@ -97,10 +114,32 @@ export default function* cartSaga(){
     
      yield take(CART.GET_CART_ID)
      yield call(createCart)
-     yield takeLatest(CART.GET_ITEMS, getCartItems)
+      yield takeLatest(CART.GET_ITEMS, getCartItems)
+    yield takeEvery(CART.ADD_ITEM, addItem)
+     yield takeEvery (CART.REMOVE_ITEM, removeItem)
+         
      
-     yield takeEvery(CART.ADD_ITEM, addItem)
+
+    
      
     
 
 }
+
+
+// function* addItem ({cartId, productId,attributes}){
+    
+
+//     try{
+//         const cartItems =  yield call(addItemApiCall, {cart_id:cartId, product_id:productId, attributes})
+        
+//         console.log('cartItem', cartItems.data)
+//         yield put(setCartItems(cartItems.data))
+//         yield put(setNotification("Item added to cart"))
+//     }
+//     catch(error){
+//         yield put(setError(error.message))
+//     }
+   
+
+// }

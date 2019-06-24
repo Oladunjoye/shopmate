@@ -19,6 +19,7 @@ const addToCart = (cartId, productId, attributes) =>{
         cartId,
         productId,
         attributes
+       
     })
 }
 
@@ -36,25 +37,32 @@ const setError =(error) => ({
 })
 //notifications--end
 
-const  getCartItems = (cartId) =>({
-
-    type: CART.GET_ITEMS,
-    cartId
+const  getCartItems = (cartId) =>{
+debugger
+    return({
+        type: CART.GET_ITEMS,
+        cartId
+    })
+    
+    
     
 
-})
+}
 
 const setCartItems = (items) => ({
     type: CART.SET_ITEMS,
     items
 })
 
-const removeItem = (itemId) => ({
-    
+const removeItem = (itemId, items) => {
+        
+        return({
         type: CART.REMOVE_ITEM,
-        itemId
+        itemId,
+        items
+        })
     
-})
+}
 
 const updateItem =( itemId, quantity) => ({
     type: CART.UPDATE_ITEM,

@@ -6,7 +6,7 @@ function CartModal(){
     return(
 
 
-<div className="modal fade " id="modalCartForm" tabindex="-1" role="dialog" aria-labelledby="modalCartForm"
+<div className="modal fade " id="modalCartForm" tabIndex="-1" role="dialog" aria-labelledby="modalCartForm"
 aria-hidden="true">
 
 <div className="modal-dialog modal-lg " role="document">

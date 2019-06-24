@@ -14,6 +14,9 @@ import productReducer from './redux/reducers/productReducer';
 import loadingReducer from "./redux/reducers/loadingReducer"
 import errorReducer from "./redux/reducers/errorReducer"
 import cartReducer from './redux/reducers/cartReducer';
+import authReducer from './redux/reducers/authReducer';
+import Register from './Auth/Register';
+
 
 
 
@@ -28,7 +31,8 @@ const rootReducer = combineReducers({
     products: productReducer,
     isLoading: loadingReducer,
     error: errorReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    auth: authReducer
 })
 
 const store = createStore(  
@@ -50,6 +54,8 @@ function App() {
    <Route path ='/products/:id' component ={SingleItem} />
    <Route path ='/cart' component ={Cart} />
       <Route path ='/checkout' component ={Checkout} />
+      <Route path ='/register' component ={Register} />
+
    </div>
     </Router>
     </Provider>
