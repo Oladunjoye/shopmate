@@ -7,7 +7,7 @@ import {getCartItems} from '../redux/actions'
 class Navbar2 extends Component{
     
     componentDidMount(){
-        debugger
+       
         this.props.getCartItems(this.props.cartId)
     }
 

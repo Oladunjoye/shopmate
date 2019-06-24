@@ -33,7 +33,7 @@ return(
     <input type="radio" name="gender" value="other" />  
     </div>
 
-    <div className="form-group" class="slidecontainer" >
+    <div className="form-group slidecontainer" >
     <label htmlFor="price">Price</label>
     <input type="range" min="1" max="100" value="50" />
 

@@ -9,11 +9,11 @@ function Review(){
        
         <div className = "review-details-1">
         <div className= "ratings">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
         <p>Pablo Permins</p>
         </div>
 
@@ -50,11 +50,11 @@ function Review(){
         <li className ="form-row">
         <label htmlFor= "star">Overall rating</label>
         <div className= "ratings">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
         </div>
         </li>
 

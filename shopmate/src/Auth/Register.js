@@ -46,7 +46,7 @@ render(){
       <MDBModal   className="modal-content" isOpen={this.state.modal} toggle={this.toggle}>
         
       <div className="modal-header text-center">
-      <h4 className=" modal-title w-100 font-weight-bold" id ="register-title">Sign in</h4>
+      <h4 className=" modal-title w-100 font-weight-bold" id ="register-title">Sign Up</h4>
       </div>
 
 

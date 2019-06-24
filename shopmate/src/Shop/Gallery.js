@@ -5,6 +5,8 @@ import {connect} from "react-redux"
 import { fetchProducts } from '../redux/actions';
 import {getCartId, getCartItems, addToCart} from "../redux/actions"
 
+import Single from './Single/SingleItem';
+
 class Gallery extends Component{
    
     componentDidMount() {
@@ -25,7 +27,10 @@ class Gallery extends Component{
             return(
             <figure key={product.product_id} className = "">
        
-            <Link to = '/products/:id' className="single-term-link">
+            <Link  to={{
+                pathname: `/products/${product.product_id}`,
+                state: { product: product }
+              }} className="single-term-link">
             <img src= {imageUrl} alt ="Product Display"/>
            <p>{product.name}</p>
            
