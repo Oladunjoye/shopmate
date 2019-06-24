@@ -19,12 +19,12 @@ function Navbar(){
           </div>
 
           <div >
-          <Register/>
-          <Login/>
+         
+          
           <ul className ="navbar-sub">
           
-          <li className="" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</li>
-          <li className="" data-toggle="modal" data-target="#modalLoginForm">Log in  </li>
+          <Register/>
+          <Login/>
 
          
           </ul>
