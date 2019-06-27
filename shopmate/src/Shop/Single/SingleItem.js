@@ -4,12 +4,18 @@ import Review from './Review';
 import Hot from '../Hot'
 import Footer from '../Footer'
 import {Link} from 'react-router-dom'
+import {  toast, ToastContainer } from 'react-toastify';
+import { addToCart} from "../../redux/actions"
+import {connect} from "react-redux"
 
 function Single(props){
+    console.log(props)
     const {product} = props.location.state
+    const {addToCart,cart} = props
      return(
         <Fragment>
         <Navbar2/>
+        <ToastContainer/>
         <div className = "single">
         <img src = {`https://backendapi.turing.com/images/products/${product.thumbnail}`} className="main-img" alt= "item"/>
 
@@ -29,7 +35,11 @@ function Single(props){
         <h2>{product.name} </h2>
         <p className= "price">${product.price}</p>
         <p className= "detail"> {product.description}</p>
-        <Link className = "btn btn-ghost" to ='/checkout'>Add to cart</Link>
+        <button 
+           onClick=
+           {(e) =>addToCart(cart.cartId.cart_id,  product.product_id, product.description)
+        }  
+        className = "btn btn-ghost " href = "#">Add to cart</button>
        
         </div>
         <Review/>
@@ -38,5 +48,19 @@ function Single(props){
         </Fragment>
     )
 }
+const mapStateToProps= ({isLoading, products,cart}) =>({
+    isLoading,
+    products,
+       cart
+}
+)
 
-export default Single
+const mapDispatchToProps= dispatch =>({
+    
+    addToCart : (cartId,product, attributes) => dispatch(addToCart(cartId, product, attributes)),
+  
+    
+
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Single)

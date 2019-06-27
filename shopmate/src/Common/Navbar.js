@@ -1,9 +1,14 @@
-import React from "react"
+import React, { Fragment } from "react"
 import {Link} from 'react-router-dom';
 import Register from '../Auth/Register'
 import Login from "../Auth/Login";
+import {connect} from "react-redux"
+import { MDBBtn } from "mdbreact";
 
-function Navbar(){
+function Navbar(props){
+  const{isAuthenticated} = props
+
+  
     return(
         <nav className="navbar ">
                       
@@ -22,10 +27,15 @@ function Navbar(){
          
           
           <ul className ="navbar-sub">
-          
-          <Register/>
-          <Login/>
-
+          {isAuthenticated ? (
+            <MDBBtn rounded color="danger">Logout</MDBBtn>
+            ) :   (
+              <Fragment>
+              <Register/>   
+                <Login/>
+            </Fragment>
+            )
+    }
          
           </ul>
           </div>
@@ -37,5 +47,8 @@ function Navbar(){
     )
 }
 
+const mapStateToProps = ({auth}) => ({
+  isAuthenticated : auth.isAuthenticated
+})
 
-export default Navbar
+export default connect(mapStateToProps, null)(Navbar)

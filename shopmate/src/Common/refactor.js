@@ -124,3 +124,62 @@
 
 
 // </Fragment>
+
+// checkout refactor
+
+
+// <div className="modal fade " id="modalCartForm" tabIndex="-1" role="dialog" aria-labelledby="modalCartForm"
+// aria-hidden="true">
+
+// <div className="modal-dialog modal-lg " role="document">
+//   <div className="modal-content">
+//    <Cart/>
+//    </div>
+    
+// </div>
+// </div>
+
+
+// case CART.ADD_ITEM:
+            
+//         let cartItems = state.cartItems
+//         let productExists = false
+        
+//         if (cartItems.length > 0){
+//         cartItems.forEach((item) => {
+//            if(item.product_id === action.product.product_id ){
+//                productExists = true
+//            }
+                          
+//         })
+        
+//         }
+//         if(!productExists){
+
+//             cartItems = [...cartItems, action.product]
+           
+//            }
+//            localStorage.setItem('cartItems',JSON.stringify(cartItems))
+//            cartItems =  JSON.parse(localStorage.getItem('cartItems'))
+//         return {...state, cartItems: cartItems}
+
+// if(state.cartItems.length >  0){
+//     cartItems =  JSON.parse(localStorage.getItem('cartItems'))
+// }
+
+// function* addItem ({cartId, productId,attributes}){
+    
+
+//     try{
+//         const cartItems =  yield call(addItemApiCall, {cart_id:cartId, product_id:productId, attributes})
+        
+//         console.log('cartItem', cartItems.data)
+//         yield put(setCartItems(cartItems.data))
+//         yield put(setNotification("Item added to cart"))
+//     }
+//     catch(error){
+//         yield put(setError(error.message))
+//     }
+   
+
+// }

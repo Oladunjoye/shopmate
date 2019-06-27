@@ -58,7 +58,7 @@ render() {
         <MDBModalBody className = "mx-0">
         <div className="modal-body mx-3">
          <div id ="login-input" className="mx-auto">
-         <input type="email" onChange ={this.handleChange} id="login-1" name ="email" className="form-control validate" autofocus required placeholder ="Email"/>
+         <input type="email" onChange ={this.handleChange} id="login-1" name ="email" className="form-control validate" autoFocus required placeholder ="Email"/>
          </div>
 
          <div id ="login-input" className="mx-auto">

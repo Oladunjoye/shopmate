@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import {connect} from "react-redux"
 import { fetchProducts } from '../redux/actions';
 import {getCartId, getCartItems, addToCart} from "../redux/actions"
+import {  toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Single from './Single/SingleItem';
 
@@ -11,13 +13,18 @@ class Gallery extends Component{
    
     componentDidMount() {
 
-        this.props.fetchProducts();
-        this.props.getCartId();
-       
+        
+        
+        if(!this.props.cart.cartId.cart_id ){
+             this.props.getCartId()
+             this.props.fetchProducts();
+        }      
 
         }
         
+       
         
+       
 
     render(){
        
@@ -37,7 +44,8 @@ class Gallery extends Component{
            </Link>
            
            <button 
-           onClick={(e) => this.props.addToCart(this.props.cart.cartId.cart_id,  product.product_id, product.description)
+           onClick=
+           {(e) => this.props.addToCart(this.props.cart.cartId.cart_id,  product.product_id, product.description)
         }  className = "btn btn-ghost " href = "#">Add to cart</button>
          
            </figure>
@@ -47,7 +55,9 @@ class Gallery extends Component{
     
     return(
         <section className ="gallery-shop">
+       
         <aside className= "filter">
+        <ToastContainer/>
         <Filter/>
         </aside>
         {products}

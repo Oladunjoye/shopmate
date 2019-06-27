@@ -6,10 +6,7 @@ import {getCartItems} from '../redux/actions'
 
 class Navbar2 extends Component{
     
-    componentDidMount(){
-       
-        this.props.getCartItems(this.props.cartId)
-    }
+    
 
     render(){
     return(
@@ -20,10 +17,11 @@ class Navbar2 extends Component{
 
         <input type ="text" placeholder ="Search Anything"/>
 
-        <CartModal/>
+       
         
         <div >
-        <i   className="fas fa-shopping-cart fa-2x fa-white"  data-toggle="modal" data-target="#modalCartForm"></i>
+        <CartModal/>
+
         </div>
           
                    
@@ -43,3 +41,7 @@ const mapStateToProps =({cart}) => ({
     cartId : cart.cartId
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar2)
+
+
+
+//         <i   className="fas fa-shopping-cart fa-2x fa-white"  data-toggle="modal" data-target="#modalCartForm"></i>

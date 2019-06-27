@@ -2,6 +2,7 @@ import {take, all,fork,takeEvery, takeLatest, call, put} from "redux-saga/effect
 import {CART} from "../constants"
 import { setCartId, setError, setNotification, setCartItems } from "../actions/cartActions";
 import axios from "axios"
+import { toast } from "react-toastify";
 
 const createCartIdUrl = 'https://backendapi.turing.com/shoppingcart/generateUniqueId'
 
@@ -22,12 +23,12 @@ function * createCart(){
 function* getCartItems({cartId}){
     const getCartItemsUrl = `https://backendapi.turing.com/shoppingcart/${cartId}`
     try{
-        debugger 
+         
     const response = yield call(fetch,getCartItemsUrl)
-   debugger
+   
     const cartItems =  yield call([response, response.json]);
-        debugger
- console.log("Run", cartItems)
+        
+ 
     yield put (setCartItems(cartItems))
     }
     catch(error){
@@ -49,24 +50,32 @@ function* addItem ({cartId, productId,attributes}){
    
 
     try{
+        
         const cartItems =  yield call(addItemApiCall, {cart_id:cartId, product_id:productId, attributes})
         
          
         
         yield put(setCartItems(cartItems.data))
         
+        toast.success("Item added to cart", 
+        {className: 'toast-success',
         
-        yield put(setNotification("Item added to cart"))
+          })
+        
+      
     }
     catch(error){
         yield put(setError(error.message))
+        toast.warn("Failed to add item", {className: 'toast-fail',
+        
+          })
     }
    
 
 }
 
 function removeItemApiCall({item_id}){
-    console.log("api call",item_id)
+   
     const removeItemUrl = `https://backendapi.turing.com/shoppingcart/removeProduct/${item_id}`
     return axios.delete(removeItemUrl)
 }
@@ -78,17 +87,25 @@ function* removeItem({itemId, items} ){
         
         
          yield call(removeItemApiCall, {item_id: itemId} )
-          const cartItems = items.filter((item) => {
+         debugger
+          const cartItems = items.items.filter((item) => {
            return item.item_id !== itemId
           })
 
           localStorage.setItem('cartItems', JSON.stringify(cartItems))
+          
           yield put(setCartItems(cartItems))
        
-        yield put (setNotification("Item removed"))
+          toast.success("Item removed from cart", 
+        {className: 'toast-success',
+        
+           })
     }
     catch(error){
         yield put(setError(error.message))
+        toast.error("Failed to remove item", {className: 'toast-fail',
+        
+          })
     }
 }
 
@@ -115,8 +132,12 @@ export default function* cartSaga(){
      yield take(CART.GET_CART_ID)
      yield call(createCart)
       yield takeLatest(CART.GET_ITEMS, getCartItems)
+      yield takeEvery (CART.REMOVE_ITEM, removeItem)
+
+      debugger
     yield takeEvery(CART.ADD_ITEM, addItem)
-     yield takeEvery (CART.REMOVE_ITEM, removeItem)
+    
+    
          
      
 
@@ -127,19 +148,3 @@ export default function* cartSaga(){
 }
 
 
-// function* addItem ({cartId, productId,attributes}){
-    
-
-//     try{
-//         const cartItems =  yield call(addItemApiCall, {cart_id:cartId, product_id:productId, attributes})
-        
-//         console.log('cartItem', cartItems.data)
-//         yield put(setCartItems(cartItems.data))
-//         yield put(setNotification("Item added to cart"))
-//     }
-//     catch(error){
-//         yield put(setError(error.message))
-//     }
-   
-
-// }

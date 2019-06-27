@@ -8,7 +8,9 @@ import axios from "axios"
 
 const loginApiCall = (params) => {
     const loginUrl = 'https://backendapi.turing.com/customers/login'
+    
     const userResult = axios.post(loginUrl, {...params})
+    
     return userResult
 }
 function* handleLogin ({email, password}) {

@@ -16,6 +16,7 @@ import errorReducer from "./redux/reducers/errorReducer"
 import cartReducer from './redux/reducers/cartReducer';
 import authReducer from './redux/reducers/authReducer';
 import Register from './Auth/Register';
+import {loadState, saveState} from "./localStorage"
 
 
 
@@ -35,10 +36,20 @@ const rootReducer = combineReducers({
     auth: authReducer
 })
 
+
+// const persistedState = loadState();
+// console.log("Persisted state",persistedState)
 const store = createStore(  
   rootReducer,
+  
   composeSetup(applyMiddleware(sagaMiddleware)), // allows redux devtools to watch sagas
 )
+
+// store.subscribe(() => {
+//   saveState({
+//     cart: store.getState().cart
+//   });
+// });
 sagaMiddleware.run(rootSaga)
 
 //redux setup ends

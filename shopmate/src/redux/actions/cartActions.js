@@ -20,7 +20,9 @@ const addToCart = (cartId, productId, attributes) =>{
         productId,
         attributes
        
-    })
+    }
+    
+    )
 }
 
 //notifications --start
