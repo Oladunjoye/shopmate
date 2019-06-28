@@ -13,17 +13,14 @@ const setOrderId = (orderId) => ({
     orderId
 })
 
-const set
-const updateCustomerAddress =(data) =>({
-
-    type: CHECKOUT.UPDATE,
-    data
-
-})
-
 const getOrder =(orderId) => ({
     type: CHECKOUT.GET_ORDER,
     orderId
+})
+
+const setOrder = (order) =>({
+    type: CHECKOUT.SET_ORDER,
+    order
 })
 
 const getOrderDetails = (orderId) => ({
@@ -31,4 +28,18 @@ const getOrderDetails = (orderId) => ({
     orderId
 })
 
-export{createOrder, updateCustomerAddress,getOrder, getOrderDetails}
+
+const setOrderDetails = (orderDetails) =>({
+    type: CHECKOUT.SET_ORDER,
+    orderDetails
+})
+
+
+const updateCustomerAddress =(data) =>({
+
+    type: CHECKOUT.UPDATE,
+    data
+
+})
+
+export{createOrder, updateCustomerAddress,getOrder, getOrderDetails, setOrder, setOrderDetails, setOrderId}

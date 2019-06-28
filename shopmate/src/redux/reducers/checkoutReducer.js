@@ -10,6 +10,7 @@ const checkoutReducer =(state = initialState, action) =>{
     switch(action.type){
 
         case CHECKOUT.SET_ORDER_ID:
+            localStorage.setItem('orderId', action.orderId)
             return {...state, orderId: action.orderId
             }
          
@@ -19,7 +20,7 @@ const checkoutReducer =(state = initialState, action) =>{
             case CHECKOUT.SET_ORDER_DETAILS:
                     return {...state, orderDetails: action.orderDeails}
         default:
-            return state;
+            return state; 
     }
 }
 

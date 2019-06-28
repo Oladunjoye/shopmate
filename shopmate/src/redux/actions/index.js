@@ -5,7 +5,7 @@ import{ setCartId,addToCart,setNotification,setError,
   
 } from './cartActions'
 import {  register, login, authFail, setUser} from "./authActions"
-import { createOrder, updateCustomerAddress,getOrder, getOrderDetails} from './checkoutActions'
+import { createOrder, updateCustomerAddress,getOrder, getOrderDetails, setOrder, setOrderDetails, setOrderId} from './checkoutActions'
 
 
 export{
@@ -13,4 +13,4 @@ export{
     setProducts,
     setProductError, setCartId,addToCart,setNotification,setError,
     getCartItems,removeItem,updateItem,deleteCart,getTotalAmount,setCartItems, getCartId,
-    register, login, authFail, setUser, createOrder, updateCustomerAddress,getOrder, getOrderDetails}
+    register, login, authFail, setUser, createOrder, updateCustomerAddress,getOrder, getOrderDetails, setOrder, setOrderDetails, setOrderId}

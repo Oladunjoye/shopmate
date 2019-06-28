@@ -4,7 +4,8 @@ import Delivery from './Delivery'
 import Confirmation from './Confirmation'
 import Payment from './Payment'
 import Success from './Success';
-
+import {connect} from "react-redux"
+import {getOrder} from '../redux/actions'
 
 
 
@@ -12,13 +13,13 @@ class Checkout extends Component {
     state = {
         name : 'Shonubi',
         address: '',
-        region: '',
-        state: '',
         city: '',
+        region: '',
+        postal_code: '',
         country: '',
-        postalCode: '',
-        shippingRegion: 1,
-        tax: 2,
+        shipping_region_id: 1,
+        shipping_id: '',
+        tax_id: 2,
         step: 1
 
     };
@@ -34,15 +35,13 @@ class Checkout extends Component {
     }
     handleChange = (e) =>{
         
-       
-
-        this.setState({
+         this.setState({
          [e.target.name] : e.target.value
        })
      }
      handleSubmit= (e) => {
        e.preventDefault()
-       console.log("submitted Form",this.state)
+      this.props.createOrder()
        this.nextStep()
       
       
@@ -77,6 +76,10 @@ class Checkout extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+
+    getOrder: () => dispatch(getOrder())
+})
 
 
-export default Checkout;
+export default connect(null, mapDispatchToProps)(Checkout);

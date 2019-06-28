@@ -21,7 +21,7 @@ class Delivery extends Component {
       
     }
     render(){
-       const {name, address,region, state, city, country, postalCode, shippingRegion, tax } = this.props.state
+       const {name, address,region, state, city, country, postalCode, shipping_region_id, tax_id, shipping_id } = this.props.state
         return (
             
             <form onSubmit = {this.props.handleSubmit} className = "checkout-form">
@@ -52,6 +52,9 @@ class Delivery extends Component {
              <label htmlFor="exampleInput">Country*</label>
              <input value ={country} name ="country" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
             </div>
+
+             
+   
     
             <div className="sub-delivery delivery-3">
              <label htmlFor="exampleInput">PostalCode*</label>
@@ -59,11 +62,16 @@ class Delivery extends Component {
             </div>
     
             <div className="sub-delivery delivery-6">
-             <label htmlFor="exampleInput">City*</label>
-             <input  value ={city} name ="city" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
+             <label htmlFor="exampleInput">Delivery method*</label>
+             <input  value ={shippingId} name ="city" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
             </div>
 
-    
+            
+            <div className="sub-delivery delivery-11">
+            <label htmlFor="exampleInput">City*</label>
+            <input value ={city} name ="city" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
+            </div>
+
             <span className=" delivery-7">
              <label htmlFor="exampleInput">Country: Great Britain*</label>
              <span>
@@ -89,6 +97,8 @@ class Delivery extends Component {
             </span>
     
             </div>
+
+           
             </section>
             
             <div className ="checkout-footer">
@@ -107,3 +117,9 @@ class Delivery extends Component {
 
 
 export default Delivery;
+
+
+// {<div className="sub-delivery delivery-11">
+//              <label htmlFor="exampleInput">City*</label>
+//              <input value ={city} name ="city" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
+//            </div>}

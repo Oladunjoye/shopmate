@@ -1,5 +1,5 @@
 import {CART} from '../constants'
-import { toast } from 'react-toastify';
+
 
 const initialState = {
     cartId: localStorage.getItem('cartId') || '',

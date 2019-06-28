@@ -17,8 +17,14 @@ class CartModal extends Component{
           modal: false,
           
         }
-        
-      test= (e , item) => {
+      
+      handleCheckout = () => {
+
+        this.props.history.push("/checkout");
+      
+        this.toggle()
+      }
+      remove= (e , item) => {
           e.preventDefault()
           this.props.removeItem(item.item_id, this.props)
       }
@@ -50,7 +56,7 @@ class CartModal extends Component{
                
                <button 
                onClick=
-               {(e) => {this.test(e,item)}
+               {(e) => {this.remove(e,item)}
             }  className = "" href = "#">Remove</button>
               
                </div>
@@ -99,7 +105,7 @@ class CartModal extends Component{
  
    <div className ="checkout-footer">
    <Link to =  "/products" className = "btn btn-ghost btn-white" href = "#">Back to shop</Link>
-   <Link to =  "/checkout" className = {"btn btn-standard  "+ disabled} href = "#">Checkout</Link>
+   <button onClick ={this.handleCheckout} className = {"btn btn-standard  "+ disabled} href = "#">Checkout</button>
    </div>
      </MDBModalBody>
         
@@ -125,6 +131,6 @@ const mapStateToProps=({cart}) =>({
   }
   )
 
-  export default connect(mapStateToProps,mapDispatchToProps)(CartModal)
+  export default withRouter(connect(mapStateToProps,mapDispatchToProps)(CartModal))
 
 
