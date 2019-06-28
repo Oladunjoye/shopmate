@@ -15,8 +15,9 @@ import loadingReducer from "./redux/reducers/loadingReducer"
 import errorReducer from "./redux/reducers/errorReducer"
 import cartReducer from './redux/reducers/cartReducer';
 import authReducer from './redux/reducers/authReducer';
+import checkoutReducer from './redux/reducers/checkoutReducer';
 import Register from './Auth/Register';
-import {loadState, saveState} from "./localStorage"
+
 
 
 
@@ -33,7 +34,8 @@ const rootReducer = combineReducers({
     isLoading: loadingReducer,
     error: errorReducer,
     cart: cartReducer,
-    auth: authReducer
+    auth: authReducer,
+    order: checkoutReducer
 })
 
 
@@ -64,8 +66,8 @@ function App() {
    <Route exact path ='/products' component ={Shop} />
    <Route path ='/products/:id' component ={SingleItem} />
    <Route path ='/cart' component ={Cart} />
-      <Route path ='/checkout' component ={Checkout} />
-      <Route path ='/register' component ={Register} />
+    <Route path ='/checkout' component ={Checkout} />
+    <Route path ='/register' component ={Register} />
 
    </div>
     </Router>
