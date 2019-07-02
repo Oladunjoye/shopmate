@@ -1,51 +1,49 @@
 import React from "react"
+import {connect} from "react-redux"
+import {getProductsByCat, getProductsByDept} from "../redux/actions/productActions"
 
-function Filter(){
+function Filter(props){
+    console.log(props)
 return(
     
-    <form>
-    <h3>Filter 300 Items</h3>
-    <div>
-    <label htmlFor="price">Season</label>
-    <select name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-    </select>
-    </div>
-
-    <div>
-    <label htmlFor="price">Category</label>
-    <select name="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-    </select>
-    </div>
-
-    <div>
-    <label htmlFor="price">Colors</label>
-    <input type="radio" name="gender" value="red" /> 
-    <input type="radio" name="gender" value="yellow" /> 
-    <input type="radio" name="gender" value="yellow" /> 
-    <input type="radio" name="gender" value="other" />  
-    </div>
-
-    <div className="form-group slidecontainer" >
-    <label htmlFor="price">Price</label>
-    <input type="range" min="1" max="100" value="50" />
-
-    </div>
-
-    <button>Apply</button>
+    <div className ="filter">
     
-    </form>
+    <h2>Filter 101 Items</h2>
+    
+    <div className ="filter-group">
+    <h3 className ="filter-subtitle">Season</h3>
+    <p onClick ={() =>props.getProductsByDept(1)}>Regional</p>
+    <p onClick ={() => props.getProductsByDept(2)}>Nature</p>
+    <p onClick ={() => props.getProductsByDept(3)}>Seasonal</p>
+    </div>
+
+    <hr/>
+   
+    <div className ="filter-group">
+    <h3 className ="filter-subtitle">Category</h3>
+    <p onClick ={() => props.getProductsByCat(1)}>French</p>
+    <p  onClick ={() =>props.getProductsByCat(2)}>Italian</p>
+    <p  onClick ={() =>props.getProductsByCat(3)}>Irish</p>
+    <p  onClick ={() =>props.getProductsByCat(4)}>Animals</p>
+    <p  onClick ={() =>props.getProductsByCat(5)}>Flower</p>
+    <p  onClick ={() =>props.getProductsByCat(6)}>Christmas</p>
+    <p  onClick ={() =>props.getProductsByCat(7)}>Valentine</p>
+    </div>
+
+
+    
+   
+    </div>
     
 )
 
 
 }
 
-export default Filter
+const mapDispatchToProps = dispatch => ({
+
+    getProductsByDept: (department_id) => dispatch(getProductsByDept(department_id)),
+    getProductsByCat : (category_id) => dispatch(getProductsByCat(category_id))
+
+})
+export default connect(null, mapDispatchToProps)(Filter)

@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Progressbar from './Progressbar';
 import CheckoutFooter from './checkoutfooter';
 import {Link} from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
 
 
 class Delivery extends Component {
@@ -21,10 +22,36 @@ class Delivery extends Component {
       
     }
     render(){
-       const {name, address,region, state, city, country, postalCode, shipping_region_id, tax_id, shipping_id } = this.props.state
+       const {name, address,region, state, city, country, postal_code, shipping_region_id, tax_id, shipping_id } = this.props.state
+        let options
+       if (shipping_region_id == 2){
+           options =  ( <Fragment> 
+            
+                    <option value= {1}   >Next Day Delivery ($20)</option>
+                    <option value={2}>3-4 Days ($10)</option>
+                    <option value={3}>7 Days ($5)</option>
+                    </Fragment>)
+       }
+       else if(shipping_region_id == 3){
+        options =  ( <Fragment> 
+           
+                    <option value= {4}>By air (7 days, $25)</option>
+                    <option value={5}>By sea (28 days, $10)</option>
+                  
+                    </Fragment>)
+       }
+       else{
+        options =  ( <Fragment> 
+            
+                    <option value= {6}>By air (10 days, $35)</option>
+                    <option value={7}>By sea (28 days, $30)</option>
+                    
+                    </Fragment>)
+       }
         return (
             
             <form onSubmit = {this.props.handleSubmit} className = "checkout-form">
+            <ToastContainer/>
             <Progressbar/>
             <section className = "delivery">
             
@@ -40,11 +67,14 @@ class Delivery extends Component {
     
             <div className="sub-delivery delivery-5">
              <label htmlFor="exampleInput">Region</label>
-              <select name ="region" value={region} onChange={this.props.handleChange}   id="exampleInput" >
-             <option value={1}>Please select a Shipping region</option>
-             <option value= {2}>US / Canada</option>
-             <option value={3}>Europe</option>
-             <option value={4}>Rest of the world</option>
+              <select name ="shipping_region_id" value={shipping_region_id} onChange={this.props.handleChange}  placeholder= "Please select a shipping region" id="exampleInput" >
+             
+              <option value= {2}>US / Canada</option>
+              <option value={3}>Europe</option>
+              <option value={4}>Rest of The World</option>
+              
+
+            
            </select>
             </div>
     
@@ -57,13 +87,15 @@ class Delivery extends Component {
    
     
             <div className="sub-delivery delivery-3">
-             <label htmlFor="exampleInput">PostalCode*</label>
-             <input value ={postalCode} name ="postalCode" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
+             <label htmlFor="exampleInput">Postal Code*</label>
+             <input value ={postal_code} name ="postal_code" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
             </div>
     
             <div className="sub-delivery delivery-6">
              <label htmlFor="exampleInput">Delivery method*</label>
-             <input  value ={shippingId} name ="city" onChange ={this.props.handleChange}  type="text" id="exampleInput" className="" />
+             <select type ="number" name ="shipping_id" value={shipping_id}  onDrop= {this.props.handleChange} onClick = {this.props.handleChange} onChange={this.props.handleChange}   id="exampleInput" >
+               {options}
+           </select>
             </div>
 
             
@@ -75,7 +107,7 @@ class Delivery extends Component {
             <span className=" delivery-7">
              <label htmlFor="exampleInput">Country: Great Britain*</label>
              <span>
-             <input type="checkbox" id="exampleInput" checked className="" />
+             <input type="checkbox" id="exampleInput" checked onChange ={this.handleChange} className="" />
              My billing information is the same as my delivery information
              </span>
             </span>
@@ -92,8 +124,8 @@ class Delivery extends Component {
             <div className = "delivery-10">
             <h3>Tax options</h3>
             <span className ="options">
-            <input type="radio" name="tax" value= {1} checked={tax == '1'} onChange ={this.props.handleChange} /> <b>"Sales Tax at 8.5%</b><br/>
-            <input type="radio" name="tax" value= {2} checked={tax == '2'} onChange ={this.props.handleChange} /><b> No Tax </b>
+            <input type="radio" name="tax_id" value= {1} checked={tax_id == '1'} onChange ={this.props.handleChange} /> <b>"Sales Tax at 8.5%</b><br/>
+            <input type="radio" name="tax_id" value= {2} checked={tax_id == '2'} onChange ={this.props.handleChange} /><b> No Tax </b>
             </span>
     
             </div>

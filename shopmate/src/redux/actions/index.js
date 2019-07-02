@@ -1,4 +1,4 @@
-import {fetchProducts,setProducts,setProductError} from './productActions'
+import {fetchProducts,setProducts,setProductError, getProductsByCat, getProductsByDept} from './productActions'
 import{ setCartId,addToCart,setNotification,setError,
     getCartItems,removeItem,updateItem,deleteCart,getTotalAmount,setCartItems, getCartId,
    
@@ -13,4 +13,5 @@ export{
     setProducts,
     setProductError, setCartId,addToCart,setNotification,setError,
     getCartItems,removeItem,updateItem,deleteCart,getTotalAmount,setCartItems, getCartId,
-    register, login, authFail, setUser, createOrder, updateCustomerAddress,getOrder, getOrderDetails, setOrder, setOrderDetails, setOrderId}
+    register, login, authFail, setUser, createOrder, updateCustomerAddress,getOrder, getOrderDetails, setOrder, setOrderDetails, setOrderId, 
+    getProductsByCat, getProductsByDept}

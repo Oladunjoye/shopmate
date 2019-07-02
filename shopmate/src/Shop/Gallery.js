@@ -13,11 +13,11 @@ class Gallery extends Component{
    
     componentDidMount() {
 
-        
+        this.props.fetchProducts();
         
         if(!this.props.cart.cartId.cart_id ){
              this.props.getCartId()
-             this.props.fetchProducts();
+           
         }      
 
         }

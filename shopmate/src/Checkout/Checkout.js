@@ -5,7 +5,7 @@ import Confirmation from './Confirmation'
 import Payment from './Payment'
 import Success from './Success';
 import {connect} from "react-redux"
-import {getOrder} from '../redux/actions'
+import {getOrder, createOrder} from '../redux/actions'
 
 
 
@@ -14,11 +14,11 @@ class Checkout extends Component {
         name : 'Shonubi',
         address: '',
         city: '',
-        region: '',
+        
         postal_code: '',
         country: '',
-        shipping_region_id: 1,
-        shipping_id: '',
+        shipping_region_id: '',
+        shipping_id: 1,
         tax_id: 2,
         step: 1
 
@@ -40,10 +40,16 @@ class Checkout extends Component {
        })
      }
      handleSubmit= (e) => {
-       e.preventDefault()
-      this.props.createOrder()
-       this.nextStep()
-      
+        e.preventDefault()
+         const {shipping_id, tax_id} = this.state
+         const cart_id = this.props.cart.cartId.cart_id
+       console.log(cart_id, shipping_id, tax_id)
+       
+       this.props.createOrder(cart_id, shipping_id, tax_id)
+    //    if(!this.props.isLoading){
+    //     this.nextStep()
+    //    }
+       
       
       
      }
@@ -57,6 +63,7 @@ class Checkout extends Component {
                         nextStep={this.nextStep} prevStep={this.prevStep} 
                         state ={this.state} handleChange ={this.handleChange}
                         handleSubmit = {this.handleSubmit}
+                        isLoading =  {this.props.isLoading}
                         />
                     );
              case 2:
@@ -76,10 +83,15 @@ class Checkout extends Component {
     }
 }
 
+const mapStateToProps = ({isLoading, cart}) =>({
+ cart,
+ isLoading
+})
 const mapDispatchToProps = dispatch => ({
 
+    createOrder: (cart_id, shipping_id, tax_id) => dispatch(createOrder(cart_id, shipping_id, tax_id)),
     getOrder: () => dispatch(getOrder())
 })
 
 
-export default connect(null, mapDispatchToProps)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

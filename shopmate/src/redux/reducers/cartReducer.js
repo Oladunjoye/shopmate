@@ -2,7 +2,7 @@ import {CART} from '../constants'
 
 
 const initialState = {
-    cartId: localStorage.getItem('cartId') || '',
+    cartId: JSON.parse(localStorage.getItem('cartId')) || '',
     cartItems: JSON.parse(localStorage.getItem('cartItems')) || [],
     filteredItems: []
 

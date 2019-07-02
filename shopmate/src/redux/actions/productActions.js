@@ -6,6 +6,17 @@ const fetchProducts =() =>({
 
 })
 
+const getProductsByDept =(department_id) =>({
+    type: PRODUCTS. GET_BY_DEPT,
+    department_id
+})
+
+const getProductsByCat =(category_id) =>({
+    type: PRODUCTS. GET_BY_CATEGORY,
+    category_id
+})
+
+
 const setProducts =(products) =>({
 
     type:PRODUCTS.LOAD_SUCCESS,
@@ -23,4 +34,4 @@ const setProductError =(error) =>({
 export{
     fetchProducts,
     setProducts,
-    setProductError}
+    setProductError, getProductsByCat, getProductsByDept}

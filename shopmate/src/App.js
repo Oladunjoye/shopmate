@@ -4,6 +4,7 @@ import Shop from './Shop';
 import SingleItem from './Shop/Single/SingleItem'
 import Cart from "./Checkout/Cart"
 import Checkout from './Checkout/Checkout'
+import Loader from "./Common/Loader"
 import './styles.scss';
 import {Link, Route, BrowserRouter as Router} from 'react-router-dom'
 import {Provider} from "react-redux"
@@ -68,6 +69,7 @@ function App() {
    <Route path ='/cart' component ={Cart} />
     <Route path ='/checkout' component ={Checkout} />
     <Route path ='/register' component ={Register} />
+    <Route path = '/loader' component = {Loader} />
 
    </div>
     </Router>

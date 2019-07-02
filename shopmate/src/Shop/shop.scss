@@ -168,3 +168,30 @@ ul{
 
 //HOT SECTION ENDS
 
+
+//FILTER SECTIONS STARTS//
+
+.filter {
+    h2{
+        font-size: 2rem;
+        font-weight: bolder;
+        font-family: $font-primary;
+    }
+
+     padding: 2rem 2rem;
+    align-content: center;
+    font-size: 1.6rem;
+    // text-align: center;
+
+    .filter-subtitle{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    &-group{
+        font-family: $font-primary;
+    }
+    p{
+        font-size: 1.4rem;
+    }
+}
+//FILTER SECTIONS ENDS//
